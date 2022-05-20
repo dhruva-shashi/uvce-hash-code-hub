@@ -1,0 +1,14 @@
+{
+	"fest-scheduling": {
+		"problem-name": "Fest Scheduling",
+		"number-of-inputs": 5
+	},
+	"network-issue": {
+		"problem-name": "Network Issue",
+		"number-of-inputs": 5
+	},
+	"cleanliness-drive": {
+		"problem-name": "Cleanliness Drive",
+		"number-of-inputs": 5
+	}
+}
