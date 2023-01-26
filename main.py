@@ -1,4 +1,4 @@
-from bottle import get, post, route, static_file, template, run, request
+from bottle import get, post, route, static_file, template, run, request, default_app
 
 from evaluators.fest_scheduling_evaluator import fest_scheduling_evaluator
 from evaluators.network_issue_evaluator import network_issue_evaluator
@@ -102,4 +102,4 @@ def submission(problem):
 
 	return {'ok': True, 'scores': score}
 
-run()
+app = default_app()
