@@ -102,7 +102,4 @@ def submission(problem):
 
 	return {'ok': True, 'scores': score}
 
-if os.environ.get('APP_LOCATION') == 'vercel':
-    run(host='0.0.0.0', port=8080)
-else:
-    run(host='localhost', port=8080, debug=True)
+run()
