@@ -1,0 +1,21 @@
+body {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 50px;
+
+	font-family: verdana, sans-serif;
+}
+
+.title {
+	margin-top: 10px;
+	text-align: center;
+
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.subtitle {
+	margin-top: 50px;
+
+	font-weight: bold;
+}
