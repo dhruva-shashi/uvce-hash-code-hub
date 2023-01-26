@@ -100,4 +100,6 @@ def submission(problem):
 	return {'ok': True, 'scores': score}
 
 app = default_app()
-run()
+
+
+
