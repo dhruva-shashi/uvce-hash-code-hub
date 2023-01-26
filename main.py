@@ -71,7 +71,7 @@ def submission(problem):
 
 	for i in range(1, problems[problem]['number-of-inputs']+1):
 		files.append(request.files.get('file%d' % i))
-		if files[i-1]:
+		if files[-1]:
 			number_of_files += 1
 
     # If the number of output files is 0, do not evaluate the submission
@@ -88,18 +88,16 @@ def submission(problem):
 			input_file_path = 'input-files/%s/input-%s.txt' % (problem, chr(i+ord('a')))
 
 			# Initialize the path for output file and save the output file temporarily
-			output_file_path = 'output-%s.txt' % (chr(i+ord('a')))
-			files[i].save(output_file_path)
+			output_file_content = files[i].file.read().decode()
 
 			if problem == 'fest-scheduling':
-				score.append(fest_scheduling_evaluator(input_file_path, output_file_path))
+				score.append(fest_scheduling_evaluator(input_file_path, output_file_content))
 			elif problem == 'network-issue':
-				score.append(network_issue_evaluator(input_file_path, output_file_path))
+				score.append(network_issue_evaluator(input_file_path, output_file_content))
 			elif problem == 'cleanliness-drive':
-				score.append(cleanliness_drive_evaluator(input_file_path, output_file_path))
-
-			os.remove(output_file_path)
+				score.append(cleanliness_drive_evaluator(input_file_path, output_file_content))
 
 	return {'ok': True, 'scores': score}
 
 app = default_app()
+run()

@@ -1,6 +1,5 @@
-def cleanliness_drive_evaluator(input_file_path, output_file_path):
+def cleanliness_drive_evaluator(input_file_path, output_file_contents):
 	fin = open(input_file_path, 'r')
-	fout = open(output_file_path, 'r')
 
 	points = 0
 
@@ -19,7 +18,7 @@ def cleanliness_drive_evaluator(input_file_path, output_file_path):
 		for i in range(0, k):
 			landfills.append(list(map(int, fin.readline().split())))
 
-		assignments = list(map(str, fout.read().split('\n')))
+		assignments = list(map(str, output_file_contents.split('\n')))
 
 		while len(assignments) > 0 and assignments[-1] == '':
 			assignments.pop()
@@ -70,12 +69,10 @@ def cleanliness_drive_evaluator(input_file_path, output_file_path):
 
 	except Exception as e:
 		fin.close()
-		fout.close()
 
 		return {'result': 'WA', 'error': str(e), 'points': 0}
 
 	fin.close()
-	fout.close()
 
 	return {'result': 'AC', 'points': points}
 

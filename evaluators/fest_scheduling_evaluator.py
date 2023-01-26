@@ -1,6 +1,5 @@
-def fest_scheduling_evaluator(input_file_path, output_file_path):
+def fest_scheduling_evaluator(input_file_path, output_file_contents):
 	fin = open(input_file_path, 'r')
-	fout = open(output_file_path, 'r')
 
 	points = 0
 
@@ -11,7 +10,7 @@ def fest_scheduling_evaluator(input_file_path, output_file_path):
 		for i in range(0, n*m):
 			tags.append(list(map(str, fin.readline().split())))
 
-		assignments = fout.read().split('\n')
+		assignments = output_file_contents.split('\n')
 
 		while len(assignments) > 0 and assignments[0] == '':
 			assignments.pop(0)
@@ -44,12 +43,10 @@ def fest_scheduling_evaluator(input_file_path, output_file_path):
 
 	except Exception as e:
 		fin.close()
-		fout.close()
 
 		return {'result': 'WA', 'error': str(e), 'points': 0}
 
 	fin.close()
-	fout.close()
 
 	return {'result': 'AC', 'points': points}
 	
