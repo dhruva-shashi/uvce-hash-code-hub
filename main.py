@@ -130,6 +130,4 @@ def submission(problem):
 
 app = default_app()
 
-run()
-
 
