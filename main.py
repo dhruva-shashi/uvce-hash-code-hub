@@ -3,8 +3,10 @@ from bottle import get, post, route, static_file, template, run, request, defaul
 from evaluators.fest_scheduling_evaluator import fest_scheduling_evaluator
 from evaluators.network_issue_evaluator import network_issue_evaluator
 from evaluators.cleanliness_drive_evaluator import cleanliness_drive_evaluator
+from evaluators.book_scanning_evaluator import book_scanning_evaluator
 
 from problem import htmlize_problem
+
 import json
 import os
 
@@ -43,6 +45,21 @@ def problem_statement(problem):
 @route('/problems/<problem>')
 def get_problem(problem):
     return htmlize_problem(problem)
+
+
+@route('/images/icon')
+def get_icon():
+	return static_file('front-end/images/icon.jpg', root='.')
+
+
+@route('/images/telegram')
+def get_telegram_icon():
+	return static_file('front-end/images/telegram.png', root='.')
+
+
+@route('/images/email')
+def get_telegram_icon():
+	return static_file('front-end/images/email.png', root='.')
 
 
 @get('/cookie-init')
@@ -96,10 +113,12 @@ def submission(problem):
 				score.append(network_issue_evaluator(input_file_path, output_file_content))
 			elif problem == 'cleanliness-drive':
 				score.append(cleanliness_drive_evaluator(input_file_path, output_file_content))
+			elif problem == 'book-scanning-2020-qualification':
+				score.append(book_scanning_evaluator(input_file_path, output_file_content))
 
 	return {'ok': True, 'scores': score}
 
 app = default_app()
-
+run()
 
 

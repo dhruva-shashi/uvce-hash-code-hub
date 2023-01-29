@@ -19,3 +19,28 @@ body {
 
 	font-weight: bold;
 }
+
+.problem-list li {
+	margin-top: 5px;
+}
+
+.footer {
+	margin-top: 200px;
+	margin-bottom: 50px;
+
+	text-align: center;
+}
+
+.footer-subtitle {
+	margin-bottom: 25px;
+
+	font-weight: bold;
+}
+
+.footer-element {
+	margin-top: 5px;
+}
+
+
+
+

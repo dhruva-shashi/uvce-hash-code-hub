@@ -10,5 +10,9 @@
 	"cleanliness-drive": {
 		"problem-name": "Cleanliness Drive",
 		"number-of-inputs": 5
+	},
+	"book-scanning-2020-qualification": {
+		"problem-name": "Book Scanning 2020 Qualification Round",
+		"number-of-inputs": 6
 	}
 }
