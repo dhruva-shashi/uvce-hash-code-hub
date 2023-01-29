@@ -1,13 +1,23 @@
 function init(problem) {
 	if (document.cookie == '') {
 		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("GET", '/cookie-init', false);
+		xmlHttp.open("GET", '/cookie-init-all', false);
 		xmlHttp.send(null);
 
 		document.cookie = "problem-scores="+xmlHttp.responseText+"; expires=Tue, 31 Dec 2030 23:59:59 UTC";
 	}
 
 	var problem_scores = JSON.parse(document.cookie.split(';')[0].split('=')[1]);
+
+	if (!(problem in problem_scores)) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open("GET", `/cookie-init/${problem}`, false);
+		xmlHttp.send(null);
+
+		problem_scores[problem] = JSON.parse(xmlHttp.responseText);
+
+		document.cookie = "problem-scores="+JSON.stringify(problem_scores)+"; expires=Tue, 31 Dec 2030 23:59:59 UTC";
+	}
 
 	var total_points = 0;
 

@@ -62,7 +62,7 @@ def get_telegram_icon():
 	return static_file('front-end/images/email.png', root='.')
 
 
-@get('/cookie-init')
+@get('/cookie-init-all')
 def cookie_init():
 	result = {}
 
@@ -75,6 +75,16 @@ def cookie_init():
 		result[problem] = temp
 
 	return result
+
+
+@get('/cookie-init/<problem>')
+def cookie_init(problem):
+	result = []
+
+	for i in range(0, problems[problem]['number-of-inputs']):
+		result.append(0)
+
+	return str(result)
 
 
 @post('/submission/<problem>')
@@ -119,5 +129,7 @@ def submission(problem):
 	return {'ok': True, 'scores': score}
 
 app = default_app()
+
+run()
 
 
