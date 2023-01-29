@@ -2,7 +2,7 @@
 
 The website helps participants of Google Hash Code to solve optimization problems, which are similar to the ones that appear in the competition and get familiar to the format in which Google Hash Code is conducted. The website was built to help students who are part of UVCE Hash Code Hub. However, the website is open to students from other colleges and hubs as well and they can make use of the website for practising optimization problems.
 
-Click [here](https://uvce-hash-code-hub.herokuapp.com/) to visit the website.
+Click [here](https://uvce-hash-code-hub.vercel.app/) to visit the website.
 
 Click [here](https://codingcompetitions.withgoogle.com/hashcode) to know more about Google Hash Code.
 
